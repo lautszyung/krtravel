@@ -141,20 +141,6 @@
   <a href="#todo">待辦</a>
 </nav>
   
-<script>
-  const targetDate = new Date("2026-12-19T00:00:00");
-
-  function updateCountdown() {
-    const now = new Date();
-    const diff = targetDate - now;
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    document.getElementById("countdown").textContent =
-      days > 0 ? `出發倒數 ${days} 天` : `旅程已開始或結束！`;
-  }
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000 * 60 * 60);
-
 <section class="hero" id="home">
   <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="100" cy="100" r="80" fill="#FFF3B0" stroke="#3E3A39" stroke-width="3"/>
@@ -193,8 +179,21 @@
       <span class="flight-tag tag-return">回程・經濟艙</span>
     </div>
   </div>
-  
 </section>
+  
+<script>
+  const targetDate = new Date("2026-12-19T00:00:00");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    document.getElementById("countdown").textContent =
+      days > 0 ? `出發倒數 ${days} 天` : `旅程已開始或結束！`;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000 * 60 * 60);
 </script>
 
 </body>
