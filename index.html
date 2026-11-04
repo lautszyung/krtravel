@@ -67,7 +67,66 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
   }
+.flight-section {
+  padding: 30px 16px;
+}
 
+.flight-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+.flight-card {
+  background: var(--bg-paper);
+  border: 3px solid var(--line-gray);
+  border-radius: 24px;
+  padding: 20px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.flight-icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.flight-info {
+  flex: 1;
+}
+
+.flight-route {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.flight-detail {
+  font-size: 0.9rem;
+  color: var(--line-gray);
+  opacity: 0.8;
+}
+
+.flight-tag {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  border: 2px solid var(--line-gray);
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.tag-outbound {
+  background: var(--mint);
+}
+
+.tag-return {
+  background: var(--pink);
+}
   @media (prefers-reduced-motion: reduce) {
     .hero svg { animation: none; }
   }
@@ -92,6 +151,36 @@
   <div class="countdown" id="countdown">計算中...</div>
 </section>
 
+  <section class="flight-section" id="flight">
+  <h2>✈️ 航班資訊</h2>
+
+  <!-- 去程 -->
+  <div class="flight-card">
+    <svg class="flight-icon" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="25" cy="25" r="22" fill="#C8E6C9" stroke="#3E3A39" stroke-width="2"/>
+      <path d="M15 25 L35 25 M28 18 L35 25 L28 32" stroke="#3E3A39" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="flight-info">
+      <div class="flight-route">香港 → 首爾（仁川）</div>
+      <div class="flight-detail">CX418｜12月19日 14:00 起飛</div>
+      <span class="flight-tag tag-outbound">去程・商務艙</span>
+    </div>
+  </div>
+
+  <!-- 回程 -->
+  <div class="flight-card">
+    <svg class="flight-icon" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="25" cy="25" r="22" fill="#FFD1DC" stroke="#3E3A39" stroke-width="2"/>
+      <path d="M35 25 L15 25 M22 18 L15 25 L22 32" stroke="#3E3A39" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="flight-info">
+      <div class="flight-route">首爾（仁川）→ 香港</div>
+      <div class="flight-detail">CX419｜12月22日 19:35 起飛</div>
+      <span class="flight-tag tag-return">回程・經濟艙</span>
+    </div>
+  </div>
+</section>
+  
 <script>
   const targetDate = new Date("2026-12-19T00:00:00");
 
