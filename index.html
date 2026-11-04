@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>首爾快閃之旅</title>
+<style>
+  :root {
+    --bg-paper: #FFFCF6;
+    --line-gray: #3E3A39;
+    --pink: #FFD1DC;
+    --mint: #C8E6C9;
+    --yellow: #FFF3B0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg-paper);
+    color: var(--line-gray);
+    font-family: "Zen Maru Gothic", "源柔ゴシック", sans-serif;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    background: var(--bg-paper);
+    border-bottom: 3px solid var(--line-gray);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-around;
+    z-index: 10;
+  }
+
+  nav a {
+    color: var(--line-gray);
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero svg {
+    width: 200px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .hero h1 {
+    margin-top: 16px;
+    font-size: 1.8rem;
+  }
+
+  .countdown {
+    margin-top: 12px;
+    display: inline-block;
+    background: var(--pink);
+    border: 3px solid var(--line-gray);
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero svg { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#home">首頁</a>
+  <a href="#flight">航班</a>
+  <a href="#itinerary">行程</a>
+  <a href="#todo">待辦</a>
+</nav>
+
+<section class="hero" id="home">
+  <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="100" r="80" fill="#FFF3B0" stroke="#3E3A39" stroke-width="3"/>
+    <rect x="70" y="60" width="60" height="80" rx="10" fill="#C8E6C9" stroke="#3E3A39" stroke-width="3"/>
+    <text x="100" y="105" font-size="14" text-anchor="middle" fill="#3E3A39">南山塔</text>
+  </svg>
+  <h1>首爾快閃之旅 🇰🇷</h1>
+  <div class="countdown" id="countdown">計算中...</div>
+</section>
+
+<script>
+  const targetDate = new Date("2026-12-19T00:00:00");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    document.getElementById("countdown").textContent =
+      days > 0 ? `出發倒數 ${days} 天` : `旅程已開始或結束！`;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000 * 60 * 60);
+</script>
+
+</body>
+</html>
